@@ -21,15 +21,11 @@ function Navbar() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    console.log("sublinks", subLinks)
-    console.log(subLinks?.length)
-  },[subLinks])
-
-  useEffect(() => {
     ;(async () => {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
+        setSubLinks(res.data.data)
       } catch (error) {
         console.log("Could not fetch Categories.", error)
       }
