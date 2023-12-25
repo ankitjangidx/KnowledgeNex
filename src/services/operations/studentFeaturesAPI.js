@@ -43,29 +43,34 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
                                 })
 
         if(!orderResponse.data.success) {
-            throw new Error(orderResponse.data.message);
+            throw new Error(orderResponse.data.data);
         }
         console.log("PRINTING orderResponse", orderResponse);
         //options
+        console.log("PRINTING key", process.env.REACT_APP_RAZORPAY_KEY);
         const options = {
-            key: process.env.RAZORPAY_KEY,
-            currency: orderResponse.data.message.currency,
-            amount: `${orderResponse.data.message.amount}`,
-            order_id:orderResponse.data.message.id,
-            name:"StudyNotion",
-            description: "Thank You for Purchasing the Course",
-            image:rzpLogo,
-            prefill: {
-                name:`${userDetails.firstName}`,
-                email:userDetails.email
-            },
-            handler: function(response) {
-                //send successful wala mail
-                sendPaymentSuccessEmail(response, orderResponse.data.message.amount,token );
-                //verifyPayment
-                verifyPayment({...response, courses}, token, navigate, dispatch);
-            }
-        }
+          key: process.env.REACT_APP_RAZORPAY_KEY,
+          currency: orderResponse.data.data.currency,
+          amount: `${orderResponse.data.data.amount}`,
+          order_id: orderResponse.data.data.id,
+          name: "StudyNotion",
+          description: "Thank You for Purchasing the Course",
+          image: rzpLogo,
+          prefill: {
+            name: `${userDetails.firstName}`,
+            email: userDetails.email,
+          },
+          handler: function (response) {
+            //send successful wala mail
+            sendPaymentSuccessEmail(
+              response,
+              orderResponse.data.data.amount,
+              token
+            );
+            //verifyPayment
+            verifyPayment({ ...response, courses }, token, navigate, dispatch);
+          },
+        };
         //miss hogya tha 
         const paymentObject = new window.Razorpay(options);
         paymentObject.open();
@@ -107,7 +112,7 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
         })
 
         if(!response.data.success) {
-            throw new Error(response.data.message);
+            throw new Error(response.data.data);
         }
         toast.success("payment Successful, ypou are addded to the course");
         navigate("/dashboard/enrolled-courses");

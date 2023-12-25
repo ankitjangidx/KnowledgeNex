@@ -18,7 +18,6 @@ function VerifyEmail() {
     if (!signupData) {
       navigate("/signup");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleVerifyAndSignup = (e) => {
@@ -87,9 +86,9 @@ function VerifyEmail() {
               Verify Email
             </button>
           </form>
-          <div className="mt-6 flex items-center justify-between">
+          <div className="flex items-center justify-between mt-6">
             <Link to="/signup">
-              <p className="text-richblack-5 flex items-center gap-x-2">
+              <p className="flex items-center text-richblack-5 gap-x-2">
                 <BiArrowBack /> Back To Signup
               </p>
             </Link>
