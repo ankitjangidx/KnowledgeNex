@@ -82,8 +82,7 @@ exports.categoryPageDetails = async (req, res) => {
         _id: { $ne: categoryId },
       })
       let differentCategory = await Category.findOne(
-        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
-          ._id
+        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]?._id
       )
         .populate({
           path: "courses",

@@ -50,20 +50,22 @@ export default function Instructor() {
           <div className="spinner"></div>
         ) : courses.length > 0 ? (
           <div>
-            <div className="my-4 flex h-[450px] space-x-4">
+            <div className="my-3 flex md:flex-row flex-col h-auto md:h-[450px] md:space-x-4 ">
               {/* Render chart / graph */}
               {totalAmount > 0 || totalStudents > 0 ? (
                 <InstructorChart courses={instructorData} />
               ) : (
                 <div className="flex-1 p-6 rounded-md bg-richblack-800">
-                  <p className="text-lg font-bold text-richblack-5">Visualize</p>
+                  <p className="text-lg font-bold text-richblack-5">
+                    Visualize
+                  </p>
                   <p className="mt-4 text-xl font-medium text-richblack-50">
                     Not Enough Data To Visualize
                   </p>
                 </div>
               )}
               {/* Total Statistics */}
-              <div className="flex min-w-[250px] flex-col rounded-md bg-richblack-800 p-6">
+              <div className="flex mt-6 md:mt-0 md:min-w-80  flex-col rounded-md bg-richblack-800 p-6">
                 <p className="text-lg font-bold text-richblack-5">Statistics</p>
                 <div className="mt-4 space-y-4">
                   <div>
@@ -87,34 +89,38 @@ export default function Instructor() {
                 </div>
               </div>
             </div>
-            <div className="p-6 rounded-md bg-richblack-800">
+            <div className="rounded-md bg-richblack-800  p-6">
               {/* Render 3 courses */}
               <div className="flex items-center justify-between">
-                <p className="text-lg font-bold text-richblack-5">Your Courses</p>
+                <p className="text-lg font-bold text-richblack-5">
+                  Your Courses
+                </p>
                 <Link to="/dashboard/my-courses">
-                  <p className="text-xs font-semibold text-yellow-50">View All</p>
+                  <p className="text-xs font-semibold text-yellow-50">
+                    View All
+                  </p>
                 </Link>
               </div>
-              <div className="flex items-start my-4 space-x-6">
+              <div className="flex flex-col items-start w-full my-4 space-y-5 md:flex-row md:space-x-6 md:space-y-0">
                 {courses.slice(0, 3).map((course) => (
-                  <div key={course._id} className="w-1/3">
+                  <div key={course._id} className="w-full md:w-1/3">
                     <img
                       src={course.thumbnail}
                       alt={course.courseName}
-                      className="h-[201px] w-full rounded-md object-cover"
+                      className="h-[201px] w-[100%] md:w-full rounded-md object-cover"
                     />
                     <div className="w-full mt-3">
                       <p className="text-sm font-medium text-richblack-50">
                         {course.courseName}
                       </p>
                       <div className="flex items-center mt-1 space-x-2">
-                        <p className="text-xs font-medium text-richblack-300">
+                        <p className="whitespace-nowrap text-xs font-medium text-richblack-300">
                           {course.studentsEnrolled.length} students
                         </p>
                         <p className="text-xs font-medium text-richblack-300">
                           |
                         </p>
-                        <p className="text-xs font-medium text-richblack-300">
+                        <p className="whitespace-nowrap text-xs font-medium text-richblack-300">
                           Rs. {course.price}
                         </p>
                       </div>
@@ -137,5 +143,5 @@ export default function Instructor() {
           </div>
         )}
       </div>
-    )
+    );
   }

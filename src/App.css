@@ -45,6 +45,10 @@ details > summary::-webkit-details-marker {
 
 /* https://10015.io/tools/css-loader-generator */
 .spinner {
+position: absolute;
+top: 30%;
+left: 50%;
+
   width: 56px;
   height: 56px;
   border-radius: 50%;
