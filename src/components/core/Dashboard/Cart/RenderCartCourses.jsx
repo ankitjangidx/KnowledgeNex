@@ -1,13 +1,13 @@
-import { FaStar } from "react-icons/fa"
-import { RiDeleteBin6Line } from "react-icons/ri"
-import ReactStars from "react-rating-stars-component"
-import { useDispatch, useSelector } from "react-redux"
+import { FaStar } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import ReactStars from "react-rating-stars-component";
+import { useDispatch, useSelector } from "react-redux";
 
-import { removeFromCart } from "../../../../slices/cartSlice"
+import { removeFromCart } from "../../../../slices/cartSlice";
 
 export default function RenderCartCourses() {
-  const { cart } = useSelector((state) => state.cart)
-  const dispatch = useDispatch()
+  const { cart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   return (
     <div className="flex flex-1 flex-col">
       {cart.map((course, indx) => (
@@ -50,7 +50,7 @@ export default function RenderCartCourses() {
           <div className="flex flex-col items-end space-y-2">
             <button
               onClick={() => dispatch(removeFromCart(course._id))}
-              className="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 py-3 px-[12px] text-pink-200"
+              className="flex items-center gap-x-1 rounded-md border border-richblack-600 bg-richblack-700 px-[12px] py-3 text-pink-200"
             >
               <RiDeleteBin6Line />
               <span>Remove</span>
@@ -62,5 +62,5 @@ export default function RenderCartCourses() {
         </div>
       ))}
     </div>
-  )
+  );
 }

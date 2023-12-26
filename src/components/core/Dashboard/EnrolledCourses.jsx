@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react"
-import ProgressBar from "@ramonak/react-progress-bar"
-import { BiDotsVerticalRounded } from "react-icons/bi"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react";
+import ProgressBar from "@ramonak/react-progress-bar";
+import { BiDotsVerticalRounded } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { getUserEnrolledCourses } from "../../../services/operations/profileAPI"
+import { getUserEnrolledCourses } from "../../../services/operations/profileAPI";
 
 export default function EnrolledCourses() {
-  const { token } = useSelector((state) => state.auth)
-  const navigate = useNavigate()
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
-  const [enrolledCourses, setEnrolledCourses] = useState(null)
+  const [enrolledCourses, setEnrolledCourses] = useState(null);
   const getEnrolledCourses = async () => {
     try {
       const res = await getUserEnrolledCourses(token);
-      console.log("res",res)
+      console.log("res", res);
 
       setEnrolledCourses(res);
     } catch (error) {
-      console.log("Could not fetch enrolled courses.")
+      console.log("Could not fetch enrolled courses.");
     }
   };
   useEffect(() => {
     getEnrolledCourses();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -57,16 +57,16 @@ export default function EnrolledCourses() {
                 className="flex w-[45%] cursor-pointer items-center gap-4 px-5 py-3"
                 onClick={() => {
                   navigate(
-                    `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`
-                  )
+                    `/view-course/${course?._id}/section/${course.courseContent?.[0]?._id}/sub-section/${course.courseContent?.[0]?.subSection?.[0]?._id}`,
+                  );
                 }}
               >
                 <img
                   src={course.thumbnail}
                   alt="course_img"
-                  className="object-cover rounded-lg h-14 w-14"
+                  className="h-14 w-14 rounded-lg object-cover"
                 />
-                <div className="flex flex-col max-w-xs gap-2">
+                <div className="flex max-w-xs flex-col gap-2">
                   <p className="font-semibold">{course.courseName}</p>
                   <p className="text-xs text-richblack-300">
                     {course.courseDescription.length > 50
@@ -76,7 +76,7 @@ export default function EnrolledCourses() {
                 </div>
               </div>
               <div className="w-1/4 px-2 py-3">{course?.totalDuration}</div>
-              <div className="flex flex-col w-1/5 gap-2 px-2 py-3">
+              <div className="flex w-1/5 flex-col gap-2 px-2 py-3">
                 <p>Progress: {course.progressPercentage || 0}%</p>
                 <ProgressBar
                   completed={course.progressPercentage || 0}
@@ -89,5 +89,5 @@ export default function EnrolledCourses() {
         </div>
       )}
     </>
-  )
+  );
 }

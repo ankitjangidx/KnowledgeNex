@@ -1,34 +1,34 @@
-import { useEffect } from "react"
-import { useForm } from "react-hook-form"
-import { RxCross2 } from "react-icons/rx"
-import ReactStars from "react-rating-stars-component"
-import { useSelector } from "react-redux"
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { RxCross2 } from "react-icons/rx";
+import ReactStars from "react-rating-stars-component";
+import { useSelector } from "react-redux";
 
-import { createRating } from "../../../services/operations/courseDetailsAPI"
-import IconBtn from "../../common/IconBtn"
+import { createRating } from "../../../services/operations/courseDetailsAPI";
+import IconBtn from "../../common/IconBtn";
 
 export default function CourseReviewModal({ setReviewModal }) {
-  const { user } = useSelector((state) => state.profile)
-  const { token } = useSelector((state) => state.auth)
-  const { courseEntireData } = useSelector((state) => state.viewCourse)
+  const { user } = useSelector((state) => state.profile);
+  const { token } = useSelector((state) => state.auth);
+  const { courseEntireData } = useSelector((state) => state.viewCourse);
 
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   useEffect(() => {
-    setValue("courseExperience", "")
-    setValue("courseRating", 0)
+    setValue("courseExperience", "");
+    setValue("courseRating", 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   const ratingChanged = (newRating) => {
     // console.log(newRating)
-    setValue("courseRating", newRating)
-  }
+    setValue("courseRating", newRating);
+  };
 
   const onSubmit = async (data) => {
     await createRating(
@@ -37,10 +37,10 @@ export default function CourseReviewModal({ setReviewModal }) {
         rating: data.courseRating,
         review: data.courseExperience,
       },
-      token
-    )
-    setReviewModal(false)
-  }
+      token,
+    );
+    setReviewModal(false);
+  };
 
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
@@ -99,7 +99,7 @@ export default function CourseReviewModal({ setReviewModal }) {
             <div className="mt-6 flex w-11/12 justify-end gap-x-2">
               <button
                 onClick={() => setReviewModal(false)}
-                className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
+                className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 px-[20px] py-[8px] font-semibold text-richblack-900`}
               >
                 Cancel
               </button>
@@ -109,5 +109,5 @@ export default function CourseReviewModal({ setReviewModal }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -12,7 +12,7 @@ import SidebarLink from "./SidebarLink";
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
-    (state) => state.profile
+    (state) => state.profile,
   );
   const { loading: authLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -34,14 +34,14 @@ export default function Sidebar() {
     <div>
       {active ? (
         <div className="absolute z-20 block">
-          <div className="flex h-[calc(100vh-3.5rem)]  md:min-w-60 flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-5 text-richblack-25 relative">
+          <div className="relative flex  h-[calc(100vh-3.5rem)] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-5 text-richblack-25 md:min-w-60">
             <div className=" flex flex-col">
               <div
                 onClick={() => setActive(!active)}
-                className="absolute top-1 z-10  -right-5"
+                className="absolute -right-5 top-1  z-10"
               >
-                <div className=" bg-yellow-800 rounded-full p-1">
-                  <AiOutlineDoubleLeft className="text-2xl md:text-3xl text-yellow-50" />
+                <div className=" rounded-full bg-yellow-800 p-1">
+                  <AiOutlineDoubleLeft className="text-2xl text-yellow-50 md:text-3xl" />
                 </div>
               </div>
               {sidebarLinks.map((link) => {
@@ -51,7 +51,7 @@ export default function Sidebar() {
                 );
               })}
             </div>
-            <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
+            <div className="mx-auto mb-6 mt-6 h-[1px] w-10/12 bg-richblack-700" />
             <div className="flex flex-col">
               <SidebarLink
                 link={{ name: "Settings", path: "/dashboard/settings" }}
@@ -82,9 +82,9 @@ export default function Sidebar() {
           )}
         </div>
       ) : (
-        <div className="absolute top-2 -left-4 bg-yellow-800 rounded-full p-2">
+        <div className="absolute -left-4 top-2 rounded-full bg-yellow-800 p-2">
           <div onClick={() => setActive(!active)} className="flex justify-end">
-            <AiOutlineDoubleRight className="text-2xl md:text-3xl text-yellow-100" />
+            <AiOutlineDoubleRight className="text-2xl text-yellow-100 md:text-3xl" />
           </div>
         </div>
       )}

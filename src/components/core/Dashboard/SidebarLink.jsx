@@ -1,23 +1,23 @@
-import * as Icons from "react-icons/vsc"
-import { useDispatch } from "react-redux"
-import { NavLink, matchPath, useLocation } from "react-router-dom"
+import * as Icons from "react-icons/vsc";
+import { useDispatch } from "react-redux";
+import { NavLink, matchPath, useLocation } from "react-router-dom";
 
-import { resetCourseState } from "../../../slices/courseSlice"
+import { resetCourseState } from "../../../slices/courseSlice";
 
 export default function SidebarLink({ link, iconName }) {
-  const Icon = Icons[iconName]
-  const location = useLocation()
-  const dispatch = useDispatch()
+  const Icon = Icons[iconName];
+  const location = useLocation();
+  const dispatch = useDispatch();
 
   const matchRoute = (route) => {
-    return matchPath({ path: route }, location.pathname)
-  }
+    return matchPath({ path: route }, location.pathname);
+  };
 
   return (
     <NavLink
       to={link.path}
       onClick={() => dispatch(resetCourseState())}
-      className={`relative px-4 md:px-8 py-2 text-sm font-medium ${
+      className={`relative px-4 py-2 text-sm font-medium md:px-8 ${
         matchRoute(link.path)
           ? "bg-yellow-800 text-yellow-50"
           : "bg-opacity-0 text-richblack-300"
@@ -34,5 +34,5 @@ export default function SidebarLink({ link, iconName }) {
         <span>{link.name}</span>
       </div>
     </NavLink>
-  )
+  );
 }

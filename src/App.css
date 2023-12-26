@@ -45,15 +45,16 @@ details > summary::-webkit-details-marker {
 
 /* https://10015.io/tools/css-loader-generator */
 .spinner {
-position: absolute;
-top: 30%;
-left: 50%;
+  position: absolute;
+  top: 30%;
+  left: 50%;
 
   width: 56px;
   height: 56px;
   border-radius: 50%;
   border: 9px solid #f1f2ff;
-  animation: spinner-bulqg1 0.8s infinite linear alternate,
+  animation:
+    spinner-bulqg1 0.8s infinite linear alternate,
     spinner-oaa3wk 1.6s infinite linear;
 }
 

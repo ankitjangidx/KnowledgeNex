@@ -22,7 +22,7 @@ const Catalog = () => {
       const res = await apiConnector("GET", categories.CATEGORIES_API);
       console.log("inside catalog ", res);
       const category_id = res?.data?.data?.filter(
-        (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName
+        (ct) => ct.name.split(" ").join("-").toLowerCase() === catalogName,
       )?.[0]?._id;
       setCategoryId(category_id);
     };
@@ -58,7 +58,7 @@ const Catalog = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="box-content px-4 bg-richblack-800">
+      <div className="box-content bg-richblack-800 px-4">
         <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">
           <p className="text-sm text-richblack-300">
             {`Home / Catalog / `}
@@ -76,9 +76,9 @@ const Catalog = () => {
       </div>
 
       {/* Section 1 */}
-      <div className="box-content w-full px-4 py-12 mx-auto max-w-maxContentTab lg:max-w-maxContent">
+      <div className="mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
         <div className="section_heading">Courses to get you started</div>
-        <div className="flex my-4 text-sm border-b border-b-richblack-600">
+        <div className="my-4 flex border-b border-b-richblack-600 text-sm">
           <p
             className={`px-4 py-2 ${
               active === 1
@@ -107,7 +107,7 @@ const Catalog = () => {
         </div>
       </div>
       {/* Section 2 */}
-      <div className="box-content w-full px-4 py-12 mx-auto max-w-maxContentTab lg:max-w-maxContent">
+      <div className="mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
         <div className="section_heading">
           Top courses in {catalogPageData?.data?.differentCategory?.name}
         </div>
@@ -119,7 +119,7 @@ const Catalog = () => {
       </div>
 
       {/* Section 3 */}
-      <div className="box-content w-full px-4 py-12 mx-auto max-w-maxContentTab lg:max-w-maxContent">
+      <div className="mx-auto box-content w-full max-w-maxContentTab px-4 py-12 lg:max-w-maxContent">
         <div className="section_heading">Frequently Bought</div>
         <div className="py-8">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">

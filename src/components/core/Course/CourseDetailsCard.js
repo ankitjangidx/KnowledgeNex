@@ -6,11 +6,7 @@ import { FaShareSquare } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function CourseDetailsCard({
-  course,
-  handleBuyCourse,
-  handleAddToCart,
-}) {
+function CourseDetailsCard({ course, handleBuyCourse, handleAddToCart }) {
   const { user } = useSelector((state) => state.profile);
   const navigate = useNavigate();
 
@@ -40,7 +36,7 @@ function CourseDetailsCard({
         />
 
         <div className="px-4">
-          <div className="pb-4 space-x-3 text-3xl font-semibold">
+          <div className="space-x-3 pb-4 text-3xl font-semibold">
             Rs. {CurrentPrice}
           </div>
           <div className="flex flex-col gap-4">
@@ -63,7 +59,7 @@ function CourseDetailsCard({
             )}
           </div>
           <div>
-            <p className="pt-6 pb-3 text-sm text-center text-richblack-25">
+            <p className="pb-3 pt-6 text-center text-sm text-richblack-25">
               30-Day Money-Back Guarantee
             </p>
           </div>
@@ -85,7 +81,7 @@ function CourseDetailsCard({
           </div>
           <div className="text-center">
             <button
-              className="flex items-center gap-2 py-6 mx-auto text-yellow-100 "
+              className="mx-auto flex items-center gap-2 py-6 text-yellow-100 "
               onClick={handleShare}
             >
               <FaShareSquare size={15} /> Share
