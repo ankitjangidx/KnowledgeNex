@@ -20,7 +20,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   } = useSelector((state) => state.viewCourse);
 
   useEffect(() => {
-    (() => {
+    const videoDetails = () => {
       if (!courseSectionData.length) return;
       const currentSectionIndx = courseSectionData.findIndex(
         (data) => data._id === sectionId,
@@ -34,8 +34,8 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
         ]?._id;
       setActiveStatus(courseSectionData?.[currentSectionIndx]?._id);
       setVideoBarActive(activeSubSectionId);
-    })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    };
+    videoDetails();
   }, [courseSectionData, courseEntireData, location.pathname]);
 
   return (

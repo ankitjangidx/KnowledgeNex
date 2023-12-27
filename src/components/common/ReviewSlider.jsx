@@ -21,16 +21,172 @@ function ReviewSlider() {
   const [reviews, setReviews] = useState([]);
   const truncateWords = 15;
 
+  const dummyReviews = [
+    {
+      id: 1,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 2,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 3,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 4,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 5,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 6,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 7,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 8,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 9,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 10,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 11,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 12,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    {
+      id: 13,
+      user: {
+        firstName: "John",
+        lastName: "Doe",
+      },
+      course: {
+        courseName: "React Fundamentals",
+      },
+      review: "This course is amazing! I learned a lot.",
+      rating: 4.5,
+    },
+    // Add 19 more dummy reviews...
+  ];
+
   useEffect(() => {
-    (async () => {
-      const { data } = await apiConnector(
-        "GET",
-        ratingsEndpoints.REVIEWS_DETAILS_API,
-      );
-      if (data?.success) {
-        setReviews(data?.data);
-      }
-    })();
+    const getReviews = async () => {
+     setReviews(dummyReviews);
+
+    }
+    getReviews();
   }, []);
 
   // console.log(reviews)
@@ -39,21 +195,38 @@ function ReviewSlider() {
     <div className="text-white">
       <div className="my-[50px] h-auto max-w-maxContentTab lg:max-w-maxContent">
         <Swiper
-          slidesPerView={4}
-          spaceBetween={25}
+          slidesPerView={2}
+          spaceBetween={20}
           loop={true}
           freeMode={true}
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
+          centeredSlides={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+              centeredSlides: false,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+              centeredSlides: false,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+              centeredSlides: false,
+            },
+          }}
           modules={[FreeMode, Pagination, Autoplay]}
-          className="w-full "
         >
           {reviews.map((review, i) => {
             return (
               <SwiperSlide key={i}>
-                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-[14px] text-richblack-25">
+                <div className="flex flex-col gap-3 bg-richblack-800 p-3 text-sm text-richblack-25">
                   <div className="flex items-center gap-4">
                     <img
                       src={
