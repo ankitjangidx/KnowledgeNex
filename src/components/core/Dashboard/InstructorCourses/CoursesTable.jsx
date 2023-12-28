@@ -43,13 +43,15 @@ export default function CoursesTable({ courses, setCourses }) {
     <>
       <Table className="rounded-xl border border-richblack-800 ">
         <Thead>
-          <Tr className="flex gap-x-10 rounded-t-md border-b border-b-richblack-800 px-6 py-2">
-            <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
-              Courses
-            </Th>
-            <Th className="text-left text-sm font-medium uppercase text-richblack-100">
+          <Tr className="flex rounded-t-md border-b border-b-richblack-800 py-2 md:w-full md:gap-x-10 md:px-6">
+            <div className="text-richblack-100">
+              <Th className="flex-1 text-left text-sm font-medium uppercase text-richblack-100">
+                Courses
+              </Th>
+            </div>
+            {/* <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Duration
-            </Th>
+            </Th> */}
             <Th className="text-left text-sm font-medium uppercase text-richblack-100">
               Price
             </Th>
@@ -70,15 +72,15 @@ export default function CoursesTable({ courses, setCourses }) {
             courses?.map((course) => (
               <Tr
                 key={course._id}
-                className="flex gap-x-10 border-b border-richblack-800 px-6 py-8"
+                className="flex items-center justify-between w-full gap-10 border-b border-richblack-800 px-6 py-8"
               >
-                <Td className="flex flex-1 gap-x-4">
+                <Td className="flex w-[100%] flex-1 gap-4">
                   <img
                     src={course?.thumbnail}
                     alt={course?.courseName}
                     className="h-[148px] w-[220px] rounded-lg object-cover"
                   />
-                  <div className="flex flex-col justify-between">
+                  <div className="flex gap-2 mb-2 items-start flex-col justify-between">
                     <p className="text-lg font-semibold text-richblack-5">
                       {course.courseName}
                     </p>
@@ -109,20 +111,20 @@ export default function CoursesTable({ courses, setCourses }) {
                     )}
                   </div>
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100">
+                {/* <Td className="text-sm font-medium text-richblack-100">
                   2hr 30min
-                </Td>
-                <Td className="text-sm font-medium text-richblack-100">
+                </Td> */}
+                <Td className="text-sm my-2 font-medium text-richblack-100">
                   ₹{course.price}
                 </Td>
-                <Td className="text-sm font-medium text-richblack-100 ">
+                <Td className="text-sm  font-medium text-richblack-100 ">
                   <button
                     disabled={loading}
                     onClick={() => {
                       navigate(`/dashboard/edit-course/${course._id}`);
                     }}
                     title="Edit"
-                    className="px-2 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
+                    className=" pr-4 transition-all duration-200 hover:scale-110 hover:text-caribbeangreen-300"
                   >
                     <FiEdit2 size={20} />
                   </button>
@@ -144,7 +146,7 @@ export default function CoursesTable({ courses, setCourses }) {
                       });
                     }}
                     title="Delete"
-                    className="px-1 transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
+                    className="transition-all duration-200 hover:scale-110 hover:text-[#ff0000]"
                   >
                     <RiDeleteBin6Line size={20} />
                   </button>
