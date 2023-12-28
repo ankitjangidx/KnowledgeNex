@@ -2,13 +2,12 @@ import { useState } from "react";
 import { VscSignOut } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineDoubleLeft } from "react-icons/ai";
-import { AiOutlineDoubleRight } from "react-icons/ai";
 
 import { sidebarLinks } from "../../../data/dashboard-links";
 import { logout } from "../../../services/operations/authAPI";
 import ConfirmationModal from "../../common/ConfirmationModal";
 import SidebarLink from "./SidebarLink";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
@@ -40,8 +39,11 @@ export default function Sidebar() {
                 onClick={() => setActive(!active)}
                 className="absolute -right-5 top-1  z-10"
               >
-                <div className=" rounded-full bg-yellow-800 p-1">
-                  <AiOutlineDoubleLeft className="text-2xl text-yellow-50 md:text-3xl" />
+                <div
+                  className="flex h-[35px] w-[35px] items-center justify-center rounded-full bg-richblack-100 p-1 text-richblack-700 hover:scale-90"
+                  title="back"
+                >
+                  <IoIosArrowBack size={30} />
                 </div>
               </div>
               {sidebarLinks.map((link) => {
@@ -82,10 +84,11 @@ export default function Sidebar() {
           )}
         </div>
       ) : (
-        <div className="absolute -left-4 top-2 rounded-full bg-yellow-800 p-2">
-          <div onClick={() => setActive(!active)} className="flex justify-end">
-            <AiOutlineDoubleRight className="text-2xl text-yellow-100 md:text-3xl" />
-          </div>
+        <div
+          onClick={() => setActive(!active)}
+          className=" absolute -left-3 top-2 z-50 rounded-full   bg-richblack-100 text-richblack-700  hover:scale-90 md:-left-4"
+        >
+          <IoIosArrowForward className="text-4xl md:text-5xl" />
         </div>
       )}
     </div>

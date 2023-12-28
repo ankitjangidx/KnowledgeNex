@@ -19,23 +19,22 @@ export default function ViewCourse() {
   const [reviewModal, setReviewModal] = useState(false);
 
   useEffect(() => {
-    const getFullDetailsOfCourse = async (courseId, token) => {
-
-      async () => {
+     (async () => {
+      try {
         const courseData = await getFullDetailsOfCourse(courseId, token);
-        // console.log("Course Data here... ", courseData.courseDetails)
+        console.log(courseData);
         dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
         dispatch(setEntireCourseData(courseData.courseDetails));
         dispatch(setCompletedLectures(courseData.completedVideos));
         let lectures = 0;
-        courseData?.courseDetails?.courseContent?.forEach((sec) => {
-          lectures += sec.subSection.length;
+        courseData?.courseDetails?.courseContent?.forEach((section) => {
+          lectures += section?.subSection?.length || 0;
         });
         dispatch(setTotalNoOfLectures(lectures));
+      } catch (error) {
+        console.log(error)
       }
-    }
-    getFullDetailsOfCourse(courseId, token);
-      
+    })();
   }, []);
 
   return (
