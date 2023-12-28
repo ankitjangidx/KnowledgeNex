@@ -124,12 +124,13 @@ function Navbar() {
               <div className=" mb-4 mt-4 h-[2px] w-[200px] bg-richblack-25"></div>
               <p className=" text-xl font-semibold text-yellow-50">Courses</p>
               <div className=" flex flex-col items-end pr-4">
-                {subLinks?.length < 0 ? (
-                  <div></div>
-                ) : (
+                {subLinks?.length > 0 ? (
                   subLinks?.map((element, index) => (
                     <Link
-                      to={`/catalog/${element?.name}`}
+                      to={`/catalog/${element.name
+                        .split(" ")
+                        .join("-")
+                        .toLowerCase()}`}
                       key={index}
                       onClick={() => {
                         shownav();
@@ -139,6 +140,8 @@ function Navbar() {
                       <p className=" text-richblack-5 ">{element?.name}</p>
                     </Link>
                   ))
+                ) : (
+                  <p className="text-center">No Courses Found</p>
                 )}
               </div>
               <div className=" mb-4 mt-4 h-[2px] w-[200px] bg-richblack-25"></div>
