@@ -36,18 +36,18 @@ export async function buyCourse(
   const toastId = toast.loading("Loading...");
   try {
     //load the script
-    console.log("loading script")
+    // console.log("loading script");
     const res = await loadScript(
       "https://checkout.razorpay.com/v1/checkout.js",
     );
-console.log("loaded succesfully")
+    // console.log("loaded succesfully");
     if (!res) {
       toast.error("RazorPay SDK failed to load");
       return;
     }
 
     //initiate the order
-    console.log("initiating order")
+    // console.log("initiating order");
     const orderResponse = await apiConnector(
       "POST",
       COURSE_PAYMENT_API,
@@ -56,20 +56,20 @@ console.log("loaded succesfully")
         Authorization: `Bearer ${token}`,
       },
     );
-    console.log("order initiated")
+    // console.log("order initiated");
 
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.data);
     }
     console.log("PRINTING orderResponse", orderResponse);
     //options
-    console.log("PRINTING key", process.env.REACT_APP_RAZORPAY_KEY);
+    // console.log("PRINTING key", process.env.REACT_APP_RAZORPAY_KEY);
     const options = {
       key: process.env.REACT_APP_RAZORPAY_KEY,
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "StudyNotion",
+      name: "KnowlegeNex",
       description: "Thank You for Purchasing the Course",
       image: rzpLogo,
       prefill: {

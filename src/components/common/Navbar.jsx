@@ -5,7 +5,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useSelector } from "react-redux";
 import { Link, matchPath, useLocation } from "react-router-dom";
 
-import logo from "../../assets/Logo/Logo-Full-Light.png";
+import logo from "../../assets/Logo/main-logo.png"
+
 import { NavbarLinks } from "../../data/navbar-links";
 import { apiConnector } from "../../services/apiconnector";
 import { categories } from "../../services/apis";
@@ -48,12 +49,12 @@ function Navbar() {
 
   return (
     <div
-      className={`relative z-50 flex h-14 w-screen items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900 transition-all  duration-500 sm:relative`}
+      className={`relative z-50 flex h-16 w-screen items-center justify-center border-b-[1px] border-b-richblack-700 bg-richblack-900 transition-all  duration-500 sm:relative`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
-          <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
+          <img src={logo} alt="Logo" width={160}  loading="lazy" />
         </Link>
         {/* Navigation links */}
         {/* mobile Navbar */}
