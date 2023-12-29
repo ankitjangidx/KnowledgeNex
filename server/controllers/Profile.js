@@ -129,7 +129,7 @@ exports.updateDisplayPicture = async (req, res) => {
       { _id: userId },
       { image: image.secure_url },
       { new: true },
-    );
+    ).populate("additionalDetails");;
     res.send({
       success: true,
       message: `Image Updated successfully`,
