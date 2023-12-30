@@ -11,16 +11,26 @@ export default function MyCourses() {
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const fetchCourses = async () => {
+      setLoading(true)
       const result = await fetchInstructorCourses(token);
       if (result) {
         setCourses(result);
       }
+      setLoading(false)
     };
     fetchCourses();
   }, []);
+   if (loading) {
+    return (
+      <div className="grid flex-1 place-items-center">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
 
   return (
     <div>
