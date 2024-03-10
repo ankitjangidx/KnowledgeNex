@@ -173,7 +173,7 @@ const Footer = () => {
           </div>
 
           <div className="text-center">
-            Made with ❤️ ankit jangid © 2023 KnowlegeNex
+            Made with ❤️ ankit jangid © 2023 KnowledgeNex
           </div>
         </div>
       </div>

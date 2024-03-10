@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/core/Dashboard/Sidebar";
 import { useState } from "react";
+import Loading from "../components/common/Loading";
 
 function Dashboard() {
   const { loading: profileLoading } = useSelector((state) => state.profile);
@@ -10,9 +11,7 @@ function Dashboard() {
 
   if (profileLoading || authLoading) {
     return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-        <div className="spinner"></div>
-      </div>
+      <Loading />
     );
   }
 

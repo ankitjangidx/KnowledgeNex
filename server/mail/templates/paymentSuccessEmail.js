@@ -67,8 +67,8 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
       
       <body>
           <div class="container">
-             <a href="https://knowlegenex.vercel.app/"><img class="logo"
-					src="https://i.ibb.co/VQTrZP0/knowlegenex-high-resolution-logo-transparent-6.png" alt="knowlegenex Logo"></a>
+             <a href="https://knowledgenex.vercel.app/"><img class="logo"
+					src="https://i.ibb.co/K6PQprd/knowledgenex-high-resolution-logo-black-transparent-1.png" alt="knowledgenex Logo"></a>
               <div class="message">Course Payment Confirmation</div>
               <div class="body">
                   <p>Dear ${name},</p>
@@ -76,7 +76,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
                   <p>Your Payment ID is <b>${paymentId}</b></p>
                   <p>Your Order ID is <b>${orderId}</b></p>
               </div>
-              <div class="support">If you have any questions or need assistance, please feel free to reach out to us at  <a href="mailto:ankittjangid11@gmail.com">info@knowlegenex.com</a>. We are here to help!</div>
+              <div class="support">If you have any questions or need assistance, please feel free to reach out to us at  <a href="mailto:ankittjangid11@gmail.com">info@knowledgenex.com</a>. We are here to help!</div>
           </div>
       </body>
       

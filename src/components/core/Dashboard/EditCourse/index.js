@@ -8,6 +8,7 @@ import {
 } from "../../../../services/operations/courseDetailsAPI";
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice";
 import RenderSteps from "../AddCourse/RenderSteps";
+import Loading from "../../../common/Loading";
 
 export default function EditCourse() {
   const dispatch = useDispatch();
@@ -30,9 +31,7 @@ export default function EditCourse() {
 
   if (loading) {
     return (
-      <div className="grid flex-1 place-items-center">
-        <div className="spinner"></div>
-      </div>
+     <Loading />
     );
   }
 

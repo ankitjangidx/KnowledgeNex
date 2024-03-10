@@ -55,8 +55,8 @@ exports.passwordUpdated = (email, name) => {
     
     <body>
         <div class="container">
-           <a href="https://knowlegenex.vercel.app/"><img class="logo"
-					src="https://i.ibb.co/VQTrZP0/knowlegenex-high-resolution-logo-transparent-6.png" alt="knowlegenex Logo"></a>
+           <a href="https://knowledgenex.vercel.app/"><img class="logo"
+					src="https://i.ibb.co/K6PQprd/knowledgenex-high-resolution-logo-black-transparent-1.png" alt="knowledgenex Logo"></a>
             <div class="message">Password Update Confirmation</div>
             <div class="body">
                 <p>Hey ${name},</p>
@@ -66,7 +66,7 @@ exports.passwordUpdated = (email, name) => {
             </div>
             <div class="support">If you have any questions or need further assistance, please feel free to reach out to us
                 at
-                <a href="mailto:ankittjangid11@gmail.com">info@knowlegenex.com</a>. We are here to help!
+                <a href="mailto:ankittjangid11@gmail.com">info@knowledgenex.com</a>. We are here to help!
             </div>
         </div>
     </body>

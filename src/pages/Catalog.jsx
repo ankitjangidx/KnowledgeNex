@@ -8,6 +8,7 @@ import Course_Card from "../components/core/Catalog/Course_Card";
 import CourseSlider from "../components/core/Catalog/CourseSlider";
 import { useSelector } from "react-redux";
 import Error from "./Error";
+import Loading from "../components/common/Loading";
 
 const Catalog = () => {
   const { loading } = useSelector((state) => state.profile);
@@ -46,9 +47,7 @@ const Catalog = () => {
 
   if (loading || !catalogPageData) {
     return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-        <div className="spinner"></div>
-      </div>
+     <Loading />
     );
   }
   if (!loading && !catalogPageData.success) {

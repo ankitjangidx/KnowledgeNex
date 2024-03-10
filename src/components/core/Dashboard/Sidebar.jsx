@@ -8,6 +8,7 @@ import { logout } from "../../../services/operations/authAPI";
 import ConfirmationModal from "../../common/ConfirmationModal";
 import SidebarLink from "./SidebarLink";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import Loading from "../../common/Loading";
 
 export default function Sidebar() {
   const { user, loading: profileLoading } = useSelector(
@@ -23,9 +24,7 @@ export default function Sidebar() {
 
   if (profileLoading || authLoading) {
     return (
-      <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800">
-        <div className="spinner"></div>
-      </div>
+     <Loading />
     );
   }
 

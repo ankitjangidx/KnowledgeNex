@@ -18,6 +18,7 @@ import { ACCOUNT_TYPE } from "../utils/constants";
 import Error from "./Error";
 import { addToCart } from "../slices/cartSlice";
 import toast from "react-hot-toast";
+import Loading from "../components/common/Loading";
 
 function CourseDetails() {
   const { user } = useSelector((state) => state.profile);
@@ -81,9 +82,7 @@ function CourseDetails() {
 
   if (loading || !response) {
     return (
-      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
-        <div className="spinner"></div>
-      </div>
+      <Loading />
     );
   }
   if (!response.success) {

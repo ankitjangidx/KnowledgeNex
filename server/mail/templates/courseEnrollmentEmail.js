@@ -67,8 +67,8 @@ exports.courseEnrollmentEmail = (courseName, name) => {
     
     <body>
         <div class="container">
-            <a href="https://knowlegenex.vercel.app/"><img class="logo"
-                src="https://i.ibb.co/VQTrZP0/knowlegenex-high-resolution-logo-transparent-6.png" alt="knowledgeNex Logo"></a>
+            <a href="https://knowledgenex.vercel.app/"><img class="logo"
+                src="https://i.ibb.co/K6PQprd/knowledgenex-high-resolution-logo-black-transparent-1.png" alt="knowledgeNex Logo"></a>
             <div class="message">Course Registration Confirmation</div>
             <div class="body">
                 <p>Dear ${name},</p>
@@ -76,10 +76,10 @@ exports.courseEnrollmentEmail = (courseName, name) => {
                     are excited to have you as a participant!</p>
                 <p>Please log in to your learning dashboard to access the course materials and start your learning journey.
                 </p>
-                <a class="cta" href="https://knowlegenex.vercel.app/dashboard">Go to Dashboard</a>
+                <a class="cta" href="https://knowledgenex.vercel.app/dashboard">Go to Dashboard</a>
             </div>
             <div class="support">If you have any questions or need assistance, please feel free to reach out to us at <a
-                    href="mailto:ankittjangid11@gmail.com">info@knowlegenex.com</a>. We are here to help!</div>
+                    href="mailto:ankittjangid11@gmail.com">info@knowledgenex.com</a>. We are here to help!</div>
         </div>
     </body>
     

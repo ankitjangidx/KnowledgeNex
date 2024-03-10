@@ -74,8 +74,8 @@ exports.contactUsEmail = (
     
     <body>
         <div class="container">
-            <a href="https://knowlegenex.vercel.app/"><img class="logo"
-                    src="https://i.ibb.co/VQTrZP0/knowlegenex-high-resolution-logo-transparent-6.png" alt="KnowlegeNex Logo"></a>
+            <a href="https://knowledgenex.vercel.app/"><img class="logo"
+                    src="https://i.ibb.co/K6PQprd/knowledgenex-high-resolution-logo-black-transparent-1.png" alt="KnowledgeNex Logo"></a>
             <div class="message">Contact Form Confirmation</div>
             <div class="body">
                 <p>Dear ${firstname} ${lastname},</p>
@@ -89,7 +89,7 @@ exports.contactUsEmail = (
                 <p>We appreciate your interest and will get back to you shortly. </p>
             </div>
             <div class="support">If you have any further questions or need immediate assistance, please feel free to reach
-                out to us at <a href="mailto:ankittjangid11@gmail.com">info@knowlegenex.com</a>. We are here to help!</div>
+                out to us at <a href="mailto:ankittjangid11@gmail.com">info@knowledgenex.com</a>. We are here to help!</div>
         </div>
     </body>
     
