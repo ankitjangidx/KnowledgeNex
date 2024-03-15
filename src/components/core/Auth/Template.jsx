@@ -1,9 +1,8 @@
-import { lazy } from "react";
 import { useSelector } from "react-redux";
 
 import frameImg from "../../../assets/Images/frame.png";
-const LoginForm =lazy(()=>import("./LoginForm"));
-const SignupForm = lazy(() => import("./SignupForm"));
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
 function Template({ title, description1, description2, image, formType }) {
   const { loading } = useSelector((state) => state.auth);

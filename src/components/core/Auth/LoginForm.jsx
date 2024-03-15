@@ -50,6 +50,9 @@ function LoginForm() {
           }}
           className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] text-richblack-5"
         />
+        <p className="mt-1 text-[0.875rem] leading-[1.375rem] text-richblack-50">
+          Test Username: student@gmail.com or instructor@gmail.com
+        </p>
       </label>
       <label className="relative">
         <p className="mb-1 text-[0.875rem] leading-[1.375rem] text-richblack-5">
@@ -67,6 +70,9 @@ function LoginForm() {
           }}
           className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
         />
+        <p className="mt-1 text-[0.875rem] leading-[1.375rem] text-richblack-50">
+          Test Password: 123456
+        </p>
         <span
           onClick={() => setShowPassword((prev) => !prev)}
           className="absolute right-3 top-[38px] z-[10] cursor-pointer"
